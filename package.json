@@ -2,8 +2,9 @@
   "name": "tdosiii",
   "version": "1.0.0",
   "description": "",
-  "main": "network.js",
+  "main": "./dist/server/server.js",
   "dependencies": {
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.6",
     "npm-run-all": "^4.1.5",
@@ -15,7 +16,10 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "start": "npm-run-all watch:build watch:server --print-label",
+    "start": "npm-run-all --parallel nodemonRun watch:build ",
+    "nodemonRun": "nodemon './dist/server/server.js'",
+    "start3": "npm run watch:build & nodemon './dist/server/server.js'",
+    "start2": "npm-run-all --parallel watch:build --print-label",
     "watch:build": "tsc --watch",
     "watch:server": "nodemon './dist/server/server.js' --watch './dist'"
   },
