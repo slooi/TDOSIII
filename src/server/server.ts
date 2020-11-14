@@ -5,3 +5,4 @@ const path = require("path");
 
 // Middleware
 app.use(express.static(path.resolve(__dirname, "..", "public")));
+//asd
